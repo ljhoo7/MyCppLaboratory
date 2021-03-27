@@ -38,9 +38,18 @@ namespace GenericBoson
 	}
 
 	// 4. 문자열 내에 포함되어 있는 문자열 구하기
-	size_t ModooString::FindFirstOf(const char*)
+	// 사실 strstr 함수 쓰면 된다.
+	size_t ModooString::FindFirstOf(const char* target)
 	{
-		// #ToDo
+		size_t targetLength = strlen(target);
+		for (int k = 0; k < m_data.size(); ++k)
+		{
+			for (int m = 0; m < targetLength; ++m)
+			{
+				
+			}
+		}
+
 		return 0;
 	}
 }
