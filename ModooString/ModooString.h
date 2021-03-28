@@ -22,11 +22,14 @@ namespace GenericBoson
 		void Append(const ModooString& value);
 
 		// 4. 문자열 내에 포함되어 있는 문자열 구하기
-		size_t FindFirstOf(const char*);
+		// \ret -1 not exists, 0 < ret found index
+		int FindFirstOf(const char*);
 
-		/*
-		5. 문자열이 같은지 비교
-		6. 문자열 크기 비교 (사전 순)
-		*/
+		// 5. 문자열이 같은지 비교
+		static bool IsSame(const char* src, const char* target);
+		bool IsSame(const char* target);
+
+		// 6. 문자열 크기 비교 (사전 순)
+		int DictionaryCompare(const char* target);
 	};
 }

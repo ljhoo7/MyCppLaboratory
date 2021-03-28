@@ -39,17 +39,44 @@ namespace GenericBoson
 
 	// 4. 문자열 내에 포함되어 있는 문자열 구하기
 	// 사실 strstr 함수 쓰면 된다.
-	size_t ModooString::FindFirstOf(const char* target)
+	int ModooString::FindFirstOf(const char* target)
 	{
 		size_t targetLength = strlen(target);
+
 		for (int k = 0; k < m_data.size(); ++k)
 		{
-			for (int m = 0; m < targetLength; ++m)
+			if (true == IsSame(&m_data[k], target))
 			{
-				
+				return k;
 			}
 		}
 
-		return 0;
+		return -1;
+	}
+
+	// 5. 문자열이 같은지 비교
+	bool ModooString::IsSame(const char* src, const char* target)
+	{
+		size_t targetLength = strlen(target);
+
+		for (int m = 0; m < targetLength; ++m)
+		{
+			if (src[m] != target[m])
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	bool ModooString::IsSame(const char* target)
+	{
+		return IsSame(&m_data[0], target);
+	}
+
+	int ModooString::DictionaryCompare(const char* target)
+	{
+
 	}
 }
