@@ -57,14 +57,9 @@ namespace GenericBoson
 	// 5. 문자열이 같은지 비교
 	bool ModooString::IsSame(const char* src, const char* target)
 	{
-		size_t targetLength = strlen(target);
-
-		for (int m = 0; m < targetLength; ++m)
+		if (0 != DictionaryCompare(src, target))
 		{
-			if (src[m] != target[m])
-			{
-				return false;
-			}
+			return false;
 		}
 
 		return true;
@@ -75,8 +70,24 @@ namespace GenericBoson
 		return IsSame(&m_data[0], target);
 	}
 
-	int ModooString::DictionaryCompare(const char* target)
+	char ModooString::DictionaryCompare(const char* src, const char* target)
 	{
+		size_t targetLength = strlen(target);
 
+		for (int m = 0; m < targetLength; ++m)
+		{
+			char comparisonResult = src[m] - target[m];
+			if (0 != comparisonResult)
+			{
+				return comparisonResult;
+			}
+		}
+
+		return 0;
+	}
+
+	char ModooString::DictionaryCompare(const char* target)
+	{
+		return DictionaryCompare(&m_data[0], target);
 	}
 }

@@ -30,6 +30,7 @@ namespace GenericBoson
 		bool IsSame(const char* target);
 
 		// 6. 문자열 크기 비교 (사전 순)
-		int DictionaryCompare(const char* target);
+		static char DictionaryCompare(const char* src, const char* target);
+		char DictionaryCompare(const char* target);
 	};
 }
