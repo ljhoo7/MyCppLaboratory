@@ -1,0 +1,3 @@
+[submodule "CurlTest/lib/curl"]
+	path = CurlTest/lib/curl
+	url = https://github.com/ljhoo7/GBString
