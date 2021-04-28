@@ -4,7 +4,7 @@
 
 int case1()
 {
-// Test 1 - compile time
+	// Test 1 - compile time
 	{
 		static_assert(nth_char_compile("tests", 2) == 's', "should be s");
 
@@ -22,6 +22,14 @@ int case1()
 			std::cout << "mathced" << std::endl;
 		}
 		std::cout << "not matched" << std::endl;
+	}
+
+	// Test 3 - compile time
+	{
+		static_assert(has_s_compile("test") == true, "It hasn't 's'.");
+
+		//// compile error
+		//static_assert(has_s_compile("tett") == true, "It hasn't 's'.");
 	}
 
 	return 0;

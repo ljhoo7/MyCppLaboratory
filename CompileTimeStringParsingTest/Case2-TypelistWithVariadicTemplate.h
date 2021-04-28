@@ -23,3 +23,5 @@ struct typelist<Head, Rest...>
 {
 	typedef typenode<Head, typename typelist<Rest...>::type> type;
 };
+
+void case2();

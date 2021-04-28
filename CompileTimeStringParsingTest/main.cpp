@@ -3,8 +3,10 @@
 
 int main()
 {
-	// Compile-time check that N th character in literal string is X.
+	//// Compile-time check that N th character in literal string is X.
 	case1();
+
+	//case2();
 
 	return 0;
 }
