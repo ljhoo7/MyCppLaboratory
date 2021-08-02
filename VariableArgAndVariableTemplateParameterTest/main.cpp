@@ -1,5 +1,8 @@
 #include <cstdarg>
 #include <iostream>
+#include <functional>
+#include <vector>
+#include <any>
 
 struct TestClass
 {
@@ -40,12 +43,42 @@ void TestFuncWithVariableTemplateArg(T arg, Typelist... argList)
 	TestFuncWithVariableTemplateArg(argList...);
 }
 
-int main()
+template<typename FUNC>
+void Wrapped(const FUNC& func)
 {
 	TestClass test;
 	test.m_tmp = 14;
 
 	//TestFuncWithVariableArg(13, test, 15);
 
-	TestFuncWithVariableTemplateArg(13, test, 15);
+	func(13, test, 15);
+}
+
+std::vector<std::function<void(const std::vector<std::any>&)>> g_variableParameterFunctionVector;
+
+int main()
+{
+	g_variableParameterFunctionVector.emplace_back([](const std::vector<std::any>& paramList) {
+		std::cout << paramList[0].type().name() << std::endl;
+		std::cout << paramList[1].type().name() << std::endl;
+		std::cout << paramList[2].type().name() << std::endl;
+	});
+
+	g_variableParameterFunctionVector.emplace_back([](const std::vector<std::any>& paramList) {
+	});
+
+	g_variableParameterFunctionVector.emplace_back([](const std::vector<std::any>& paramList) {
+	});
+
+	g_variableParameterFunctionVector.emplace_back([](const std::vector<std::any>& paramList) {
+	});
+
+	std::vector<std::any> tmpVector;
+	tmpVector.push_back(1);
+	tmpVector.push_back(3.14);
+	tmpVector.push_back(TestClass());
+
+	g_variableParameterFunctionVector[0](tmpVector);
+
+	system("pause");
 }
