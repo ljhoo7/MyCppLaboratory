@@ -1,8 +1,13 @@
 #include <windows.h>
+#include <typeinfo>
+#include <iostream>
 #include "CaseBase.h"
 
 class Case1 : public CaseBase
 {
+public:
+	Case1();
+
 	void Run() override;
 };
 
