@@ -1,6 +1,8 @@
 #include <windows.h>
 #include <typeinfo>
 #include <iostream>
+#include <thread>
+
 #include "CaseBase.h"
 
 class Case1 : public CaseBase
