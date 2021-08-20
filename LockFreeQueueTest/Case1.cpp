@@ -1,35 +1,18 @@
 #include "Case1.h"
 
+QueueT<int> g_queue;
+
 Case1::Case1()
 {
 	m_caseName = typeid(*this).name();
 }
 
-volatile bool g_keepLooping = true;
-QueueT<int> g_queue;
-
-void Case1::Run()
+void Case1::EnqueueWrap(int value)
 {
-	srand(time(NULL));
+	g_queue.Enqueue(value);
+}
 
-	std::vector<std::thread> threadVector;
-
-	for (int k = 0; k < 10; ++k)
-	{
-		threadVector.emplace_back([]()
-		{
-			int randNum = rand() % 1000;
-
-			if (randNum % 2)
-			{
-				g_queue.Enqueue(randNum);
-			}
-			else
-			{
-				g_queue.Dequeue(randNum);
-			}
-
-			Sleep(randNum);
-		});
-	}
+void Case1::DequeueWrap(int& outValue)
+{
+	g_queue.Dequeue(outValue);
 }

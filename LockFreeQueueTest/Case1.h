@@ -5,12 +5,18 @@
 
 #include "CaseBase.h"
 
+template<typename T>
+class QueueT;
+
+extern QueueT<int> g_queue;
+
 class Case1 : public CaseBase
 {
 public:
 	Case1();
 
-	void Run() override;
+	void EnqueueWrap(int) override;
+	void DequeueWrap(int&) override;
 };
 
 // 출처: https://kksuny.tistory.com/21 [생각이 없는 프로그래밍]

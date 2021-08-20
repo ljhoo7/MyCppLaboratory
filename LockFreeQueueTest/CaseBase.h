@@ -8,7 +8,9 @@ protected:
 public:
 	CaseBase() = default;
 
-	virtual void Run() = 0;
+	virtual void EnqueueWrap(int) = 0;
+
+	virtual void DequeueWrap(int&) = 0;
 
 	std::string_view GetCaseName() const;
 };
