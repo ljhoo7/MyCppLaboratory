@@ -29,7 +29,7 @@ private:
     struct Node
     {
         T data;
-        Node* next;
+        Node* next = nullptr;
 
         Node& operator=(const Node& ot)
         {
@@ -44,14 +44,14 @@ private:
         }
     };
 
-    Node* _head;        // 시작노드를 포인트한다.
-    Node* _tail;        // 마지막노드를 포인트한다.
+    Node* _head = nullptr;
+    Node* _tail = nullptr;
 
 public:
 	QueueT()
 	{
 		_size = 0;
-		_head = new Node;
+		_head = new Node();
 		_head->next = NULL;
 		_tail = _head;
 	}
@@ -64,7 +64,7 @@ public:
 template<typename T>
 void QueueT<T>::Enqueue(T t)
 {
-	Node* node = new Node;
+	Node* node = new Node();
 	node->data = t;
 	node->next = NULL;
 
