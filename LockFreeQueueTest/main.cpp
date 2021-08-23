@@ -4,6 +4,7 @@
 #include <memory>
 
 #include "Case1.h"
+#include "Case2.h"
 
 volatile bool g_keepLooping = true;
 
@@ -14,6 +15,7 @@ int main()
 	std::vector<std::shared_ptr<CaseBase>> vec;
 
 	vec.emplace_back(std::make_shared<Case1>());
+	vec.emplace_back(std::make_shared<Case2>());
 
 	for (auto& iCase : vec)
 	{

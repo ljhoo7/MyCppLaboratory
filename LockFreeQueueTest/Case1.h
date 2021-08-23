@@ -1,3 +1,15 @@
+///////////////////////////////////////////////////////////////
+//
+// 락프리 큐 1
+//
+// 출처: https://kksuny.tistory.com/21 [생각이 없는 프로그래밍]
+//
+///////////////////////////////////////////////////////////////
+
+// Debug에서는 잘되나, Release에서 access violation 발생.
+
+#pragma once
+
 #include <windows.h>
 #include <typeinfo>
 #include <iostream>
@@ -19,7 +31,6 @@ public:
 	void DequeueWrap(int&) override;
 };
 
-// 출처: https://kksuny.tistory.com/21 [생각이 없는 프로그래밍]
 template <typename T>
 class QueueT
 {
