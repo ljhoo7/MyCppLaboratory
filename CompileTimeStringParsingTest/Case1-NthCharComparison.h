@@ -24,4 +24,4 @@ consteval bool has_s_compile(const char(&arr)[N])
 // Test 2 - runtime
 char nth_char_runtime(const char(&arr)[6], unsigned i);
 
-int case1();
+int Case1();

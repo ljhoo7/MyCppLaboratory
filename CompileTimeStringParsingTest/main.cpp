@@ -1,12 +1,15 @@
 #include "Case1-NthCharComparison.h"
 #include "Case2-TypelistWithVariadicTemplate.h"
+#include "Case3.h"
 
 int main()
 {
 	//// Compile-time check that N th character in literal string is X.
 	//case1();
 
-	case2();
+	//case2();
+
+	Case3();
 
 	return 0;
 }

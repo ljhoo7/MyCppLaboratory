@@ -2,7 +2,7 @@
 
 #include "Case1-NthCharComparison.h"
 
-int case1()
+int Case1()
 {
 	// Test 1 - compile time
 	{

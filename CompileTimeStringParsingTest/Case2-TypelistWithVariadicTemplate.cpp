@@ -2,7 +2,7 @@
 
 #include "Case2-TypelistWithVariadicTemplate.h"
 
-void case2()
+void Case2()
 {
 	typedef typelist<int, short, long, float> tl;
 

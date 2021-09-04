@@ -85,4 +85,4 @@ struct visitor<null_type, Delegator>
 	static void execute() {}
 };
 
-void case2();
+void Case2();
