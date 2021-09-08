@@ -1,17 +1,10 @@
 #include "Case3.h"
 
+#define Method(PATH,CALLABLE) static const char test[]{ PATH };Test<test>(CALLABLE)
+
 void Case3()
 {
-	/*Test<'T','E','S','T'>();
-	Test<'T', 'E', 'S'>();
-	Test<'T', 'E'>();
-	Test<'T'>();*/
-
-	static const char test[] = "Test1";
-	Test<test>();
-	Test<test>();
-
-	static const char test2[] = "Test2";
-	Test<test2>();
-	Test<test2>();
+	Method("test/test2", []() {
+		std::cout<<"hello"<<std::endl;
+	});
 }
