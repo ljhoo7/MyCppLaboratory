@@ -1,10 +1,10 @@
 #include "Case3.h"
 
-#define Method(PATH,CALLABLE) static const char test[]{ PATH };Test<test>(CALLABLE)
+#define Method(NAME, PATH,CALLABLE) static const char NAME[]{ PATH };Test<NAME>(CALLABLE)
 
 void Case3()
 {
-	Method("test/test2", []() {
+	Method(a, "test/test2", []() {
 		std::cout<<"hello"<<std::endl;
 	});
 }
