@@ -2,19 +2,30 @@
 
 void Case3()
 {
-	/*PUT("test/test2", []() {
+	/*METHOD("test/test2", []() {
 		std::cout << "hello" << std::endl;
 		});*/
 
 	static const char path[] = "test/test2";
 
-	PUT<path>::Register([]()
+	METHOD<path>::PUT([]()
 		{
-			std::cout << "test" << std::endl;
+			std::cout << "put test" << std::endl;
 		});
 
-	PUT<path>::g_callable();
+	METHOD<path>::GET([]()
+		{
+			std::cout << "get test" << std::endl;
+		});
+
+	METHOD<path>::g_put();
 }
 
 template<const char* PATH>
-std::function<void()> PUT<PATH>::g_callable;
+std::function<void()> METHOD<PATH>::g_put;
+template<const char* PATH>
+std::function<void()> METHOD<PATH>::g_get;
+template<const char* PATH>
+std::function<void()> METHOD<PATH>::g_post;
+template<const char* PATH>
+std::function<void()> METHOD<PATH>::g_head;
