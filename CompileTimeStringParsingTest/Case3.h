@@ -6,9 +6,9 @@
 
 void Case3();
 
-//#define COMBINE_INTERNAL(X,Y) X##Y
-//#define COMBINE(X,Y) COMBINE_INTERNAL(X,Y)
-//#define METHOD(PATH,CALLABLE) static const char COMBINE(METHOD,__LINE__)[]{ PATH };Put<COMBINE(METHOD,__LINE__)>(CALLABLE)
+#define COMBINE_INTERNAL(X,Y) X##Y
+#define COMBINE(X,Y) COMBINE_INTERNAL(X,Y)
+#define PUT(PATH,CALLABLE) static const char COMBINE(METHOD,__LINE__)[]{ PATH };METHOD<COMBINE(METHOD,__LINE__)>::Put(CALLABLE)
 
 template<const char* PATH>
 class METHOD
@@ -26,7 +26,7 @@ public:
 	static std::function<void()> g_head;
 
 	template<typename CALLABLE>
-	static void PUT(CALLABLE callable)
+	static void Put(CALLABLE callable)
 	{
 		if (nullptr != g_put)
 		{
@@ -37,7 +37,7 @@ public:
 	}
 
 	template<typename CALLABLE>
-	static void GET(CALLABLE callable)
+	static void Get(CALLABLE callable)
 	{
 		if (nullptr != g_get)
 		{
@@ -48,7 +48,7 @@ public:
 	}
 
 	template<typename CALLABLE>
-	static void POST(CALLABLE callable)
+	static void Post(CALLABLE callable)
 	{
 		if (nullptr != g_post)
 		{
@@ -59,7 +59,7 @@ public:
 	}
 
 	template<typename CALLABLE>
-	static void HEAD(CALLABLE callable)
+	static void Head(CALLABLE callable)
 	{
 		if (nullptr != g_head)
 		{

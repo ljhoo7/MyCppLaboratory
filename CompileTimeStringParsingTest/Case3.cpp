@@ -2,13 +2,13 @@
 
 void Case3()
 {
-	/*METHOD("test/test2", []() {
+	PUT("test/test2", []() {
 		std::cout << "hello" << std::endl;
-		});*/
+		});
 
 	static const char path[] = "test/test2";
 
-	METHOD<path>::PUT([]()
+	/*METHOD<path>::PUT([]()
 		{
 			std::cout << "put test" << std::endl;
 		});
@@ -16,7 +16,7 @@ void Case3()
 	METHOD<path>::GET([]()
 		{
 			std::cout << "get test" << std::endl;
-		});
+		});*/
 
 	METHOD<path>::g_put();
 }
