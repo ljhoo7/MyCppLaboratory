@@ -4,25 +4,25 @@ using namespace std;
 
 struct Temp
 {
-	int m_temp = 3;
+	int m_temp = 999;
 
 	Temp() = default;
-	Temp(const Temp&&) = default;
 };
 
 pair<int, Temp> Test()
 {
 	Temp tmp;
-	return { 3, tmp};
+	return { 3, std::move(tmp) };
 }
 
 int main()
 {
-	int a, b;
+	int a;
+	Temp b;
 
 	tie(a, b) = Test();
 
-	cout << a << "," << b << endl;
+	cout << a << "," << b.m_temp << endl;
 
 	return 0;
 }
