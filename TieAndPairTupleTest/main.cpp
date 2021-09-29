@@ -12,7 +12,7 @@ struct Temp
 pair<int, Temp> Test()
 {
 	Temp tmp;
-	return { 3, std::move(tmp) };
+	return { 3, tmp };
 }
 
 int main()
